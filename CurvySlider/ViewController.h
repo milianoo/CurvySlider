@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController : UIViewController
+{
+    UIBezierPath *trackPath;
+    CAShapeLayer *slidertrack;
+    
+    CALayer *SliderButton;
+    IBOutlet UIImageView* btn_slider;
+    
+    NSMutableDictionary* curvePoints;
+    bool isShapeSelected;
+}
+
+@property(nonatomic,retain) IBOutlet UIImageView* btn_slider;
+@property(nonatomic,retain) IBOutlet UIView* mainview;
 
 @end
+
