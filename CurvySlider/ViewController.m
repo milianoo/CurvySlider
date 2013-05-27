@@ -41,10 +41,10 @@
      */
     
     // Points to Draw Bezier Curve
-    CGPoint p1 = P(20, 425);
+    CGPoint p1 = P(5, 425);
     CGPoint p2 = P(160, 405);
     CGPoint p3 = P(160, 405);
-    CGPoint p4 = P(300,425);
+    CGPoint p4 = P(315,425);
     
     curvePoints = [[NSMutableDictionary alloc] init];
     // Define Points Over Bezier Curve
@@ -74,6 +74,7 @@
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     isShapeSelected = NO;
+    self.lbl_value.text = [NSString stringWithFormat:@"Slider Value : %i",self.value];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -93,11 +94,15 @@
         UITouch *touch = [[event allTouches] anyObject];
         CGPoint location = [touch locationInView:touch.view];
         
-        int x = (int)location.x;
+        int x_point = (int)location.x;
         
-        NSString* y_point = [curvePoints valueForKey:[NSString stringWithFormat:@"%i",x]];
+        NSString* y_point = [curvePoints valueForKey:[NSString stringWithFormat:@"%i",x_point]];
         if (y_point != nil)
-            btn_slider.center = P(location.x,[y_point intValue]);
+        {
+            self.value = x_point;
+            self.btn_slider.center = P(location.x,[y_point intValue]);
+        }
+        
     }
 }
 

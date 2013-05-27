@@ -16,6 +16,8 @@
     
     CALayer *SliderButton;
     IBOutlet UIImageView* btn_slider;
+    IBOutlet UILabel* lbl_value;
+    int value;
     
     NSMutableDictionary* curvePoints;
     bool isShapeSelected;
@@ -23,6 +25,8 @@
 
 @property(nonatomic,retain) IBOutlet UIImageView* btn_slider;
 @property(nonatomic,retain) IBOutlet UIView* mainview;
+@property(nonatomic,retain) IBOutlet UILabel* lbl_value;
+@property(nonatomic) int value;
 
 @end
 
